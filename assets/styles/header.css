@@ -1,0 +1,60 @@
+header {
+  position: fixed;
+  width: 100vw;
+  height: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #1F1930;
+  user-select: none;
+}
+header .right,
+header .left,
+header .center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+header .left {
+  padding-left: 16px;
+  gap: 12px;
+}
+header .left .element {
+  cursor: pointer;
+}
+header .left .element img {
+  width: 20px;
+  height: 20px;
+}
+header .center {
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+}
+header .center span {
+  color: #5E479B;
+  user-select: none;
+  cursor: default;
+}
+header .right {
+  padding-right: 16px;
+  justify-content: end;
+  gap: 22px;
+}
+header .right .settings {
+  display: flex;
+  gap: 8px;
+}
+header .right .controls {
+  display: flex;
+  gap: 8px;
+}
+header .right .controls .element {
+  cursor: pointer;
+}
+header .right .controls .element img {
+  width: 24px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=header.css.map */

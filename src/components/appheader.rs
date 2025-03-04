@@ -13,14 +13,16 @@ const MINIMIZE_SVG: Asset = asset!("/assets/svgs/minimize.svg");
 pub fn AppHeader() -> Element {
     let navigator = use_navigator();
     let window = use_window();
-    let windowclone1 = use_window();
-    let windowclone2 = use_window();
+    let window_clone = window.clone();
+    let window_clone1 = window.clone();
 
     rsx! {
         document::Link { rel: "stylesheet", href: HEADER_CSS }
         header {
             onmousedown: move |_| {
-                let _ = &window.drag_window();
+                if let Err(e) = window.drag_window() {
+                    tracing::error!("Failed to drag window: {}", e);
+                }
                 tracing::info!("Header clicked");
             },
             div {
@@ -59,6 +61,14 @@ pub fn AppHeader() -> Element {
             div {
                 class: "center",
                 span {
+                    onmousedown: move |event| {
+                        event.stop_propagation();
+                        tracing::info!("DataViewer button mousedown");
+                    },
+                    onclick: move |event| {
+                        event.stop_propagation();
+                        navigator.push("/");
+                    },
                     "fetcher"
                 }
             },
@@ -71,7 +81,7 @@ pub fn AppHeader() -> Element {
                         img {
                             src: TERMINAL_SVG
                         }
-                    },
+                    }
                     div {
                         class: "element",
                         img {
@@ -85,24 +95,24 @@ pub fn AppHeader() -> Element {
                         class: "element",
                         onmousedown: move |event| {
                             event.stop_propagation();
-                            tracing::info!("DataViewer button mousedown");
+                            tracing::info!("Minimize button mousedown");
                         },
                         onclick: move |_| {
-                            windowclone1.set_minimized(true);
+                            window_clone.set_minimized(true)
                         },
                         img {
                             src: MINIMIZE_SVG
                         }
                     },
                     div {
+                        class: "element",
                         onmousedown: move |event| {
                             event.stop_propagation();
-                            tracing::info!("DataViewer button mousedown");
+                            tracing::info!("Close button mousedown");
                         },
                         onclick: move |_| {
-                            windowclone2.close();
+                            window_clone1.close()
                         },
-                        class: "element",
                         img {
                             src: CLOSE_SVG
                         }

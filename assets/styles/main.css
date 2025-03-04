@@ -5,12 +5,20 @@
   box-sizing: border-box;
   color: white;
   font-family: "JetBrains Mono";
+  --background: #14101F;
+  --accent: #5E479B;
+  --header: #1F1930;
+  --background-help: #181324;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 main {
-  background-color: #14101F;
-  min-height: 100vh;
+  background-color: var(--background);
+  height: 100vh;
   width: 100vw;
 }
 
-/*# sourceMappingURL=main.css.map */
+.container {
+  overflow-y: scroll;
+}

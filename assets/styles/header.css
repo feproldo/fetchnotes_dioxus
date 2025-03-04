@@ -4,7 +4,7 @@ header {
   height: 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #1F1930;
+  background-color: var(--header);
   user-select: none;
 }
 header .right,
@@ -32,9 +32,9 @@ header .center {
   align-items: center;
 }
 header .center span {
-  color: #5E479B;
+  color: var(--accent);
   user-select: none;
-  cursor: default;
+  cursor: pointer;
 }
 header .right {
   padding-right: 16px;
@@ -56,5 +56,3 @@ header .right .controls .element img {
   width: 24px;
   height: 24px;
 }
-
-/*# sourceMappingURL=header.css.map */

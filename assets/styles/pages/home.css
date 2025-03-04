@@ -1,5 +1,5 @@
 main {
-  background: linear-gradient(-45deg, #14101F, #5E479B);
+  background: linear-gradient(-45deg, var(--background), var(--accent));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,5 +11,3 @@ main h1 {
 main h2 {
   font-size: 24px;
 }
-
-/*# sourceMappingURL=home.css.map */

@@ -25,6 +25,7 @@ Config::default()
             .with_menu(None)
             .with_window(
                 WindowBuilder::new()
+                    .with_resizable(false)
                     .with_decorations(false)
                     .with_inner_size(LogicalSize::new(1400, 900))
                     
